@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Doctor List</h1>
+
+    {% if doctor_list %}
+    <ul>
+
+      {% for doctor in doctor_list %}
+      <li>
+      <a href="{{ doctor.get_absolute_url }}">
+      {{ doctor.title }} {{ doctor }} 
+      </a>
+      <em><font size="2"> --- {{doctor.specialty}}</font></em>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no Doctors available.</p>
+    {% endif %}       
+{% endblock %}

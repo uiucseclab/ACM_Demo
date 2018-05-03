@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ doctor.title }} {{ doctor }}</h1>
+
+  <p><em>{{doctor.specialty}}</em></p>
+  
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4><strong> -- Patients -- </strong></h4>
+
+	<d1>
+    {% for patient in doctor.patient_set.all %}
+		<dt><a href="{% url 'patient-detail' patient.pk %}">{{patient}}</a></dt> 
+        <hl class="{% if patient.status == 'e' %}text-warning{% elif patient.status == 'a' %}text-success{% else %}text-danger{% endif %}"><strong>{{ patient.get_status_display }}</strong> on {{ patient.date_of_appointment }}</hl>
+		<dd><font color="green">Diagnosis:</font> <em>{{patient.diagnosis}}</em></dd>
+    {% endfor %}
+	</dl>
+  
+  
+  </div>
+{% endblock %}

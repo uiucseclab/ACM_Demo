@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>All Assigned Patients</h1>
+
+    {% if patient_list %}
+    <ul>
+
+      {% for pat in patient_list %} 
+      <li class="{% if pat.is_cancelled %}text-danger{% endif %}">
+        <a href="{% url 'patient-detail' pat.pk %}">{{pat}}</a> ({{ pat.get_status_display }}) {% if user.is_staff %}- {{ pat.doctor_account }}{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books borrowed.</p>
+    {% endif %}       
+{% endblock %}

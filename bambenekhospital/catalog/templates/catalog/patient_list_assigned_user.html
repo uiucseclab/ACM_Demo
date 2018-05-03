@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Assigned Patients</h1>
+
+    {% if patient_list %}
+    <ul>
+
+      {% for pat in patient_list %} 
+      <li class="{% if pat.is_cancelled %}text-danger{% endif %}">
+        <a href="{% url 'patient-detail' pat.pk %}">{{pat}}</a> ({{ pat.get_status_display }})        
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no patients assigned.</p>
+    {% endif %}       
+{% endblock %}

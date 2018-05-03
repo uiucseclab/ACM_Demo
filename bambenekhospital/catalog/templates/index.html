@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Bambenek Hospital Home</h1>
+
+  <p>Greetings! Welcome to <em>Bambenek Hospital</em>, a very basic Django website developed as a means to get good grades</p>
+
+<h2>Hospital Overview</h2>
+
+  <p>The Hospital has the following record counts:</p>
+  <ul>
+    <li><strong>Total Patients:</strong> {{ num_patients }}</li>
+    <li><strong>Patients expected today:</strong> {{ num_patients_expected }}</li>
+    <li><strong>Number of Doctors:</strong> {{ num_doctors }}</li>
+  </ul>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<p><em><font size="2">You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</font></em></p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Patient: {{ patient }}</h1>
+
+  <p><strong>Sex:</strong> {{ patient.sex }}</p>
+  <p><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</p>
+  <!--- <p><strong>Date of Appointment:</strong> {{ patient.date_of_appointment }}</p> --->
+  <p><strong>Symptoms:</strong> {{ patient.symptoms }}</p>
+  <p><strong>Past Medical History:</strong> {{ patient.past_medical_history }}</p>
+  <p><strong>Diagnosis:</strong> {{ patient.diagnosis }}</p>
+  <p><strong>Treatment:</strong> {{ patient.treatment }}</p>
+  <p><strong>Doctor:</strong> <a href="">{{ patient.doctor }}</a></p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4><strong> - Appointment - </strong></h4>
+    <p class="{% if patient.status == 'e' %}text-warning{% elif patient.status == 'a' %}text-success{% else %}text-danger{% endif %}">{{ patient.get_status_display }}</p>
+    {% if patient.status == 'e' %}<p><strong>Appointment:</strong> {{patient.date_of_appointment}}</p>{% endif %}
+    {% if patient.status == 'a' %}<p><strong>Last Seen:</strong> {{patient.date_of_appointment}}</p>{% endif %}
+  </div>
+{% endblock %}

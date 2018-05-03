@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Fire Doctor</h1>
+
+<p>Are you sure you want to fire the doctor: {{ doctor }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="Yes, gtfo." />
+</form>
+
+{% endblock %}
