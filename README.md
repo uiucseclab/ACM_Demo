@@ -38,7 +38,7 @@
 #	$ mkvirtualenv my_django_environment
 #	$ pip3 install django
 ### -- RUN THE PROJECT -- ###
-#	inside bambenekhospital directoryt hat contains manage.py, do the following on terminal
+#	inside bambenekhospital directory that contains manage.py, do the following on terminal
 #	$ python3 manage.py makemigrations ( py -3 manage.py makemigrations # if on windows 10)
 #	$ python3 manage.py migrate
 #	$ python3 manage.py createsuperuser
